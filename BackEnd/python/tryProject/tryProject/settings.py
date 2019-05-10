@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2p(z+f+%tff9jc+=5r*h%j2tvpfm*v6crc=p098%aked$3h(u-'
+SECRET_KEY = '4)na9e#^6eq#h2mjk@qe6u)kbgav2m_ooc13=^*xcg333cgt^u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'userManagement',
-    'rest_framework'
+    'DressManagement'
 ]
 
 MIDDLEWARE = [
@@ -77,8 +76,12 @@ WSGI_APPLICATION = 'tryProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tryDatabase',
+        'USER': 'TryTeam',
+        'PASSWORD': '1234567890',
+        'HOST': 'tryinstance.cripi3y19m8g.ap-southeast-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
