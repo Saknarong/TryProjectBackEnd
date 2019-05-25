@@ -73,7 +73,7 @@ aleart = () =>{
     marginTop:40
    },
   botton:{
-    width:200,
+    width:'200',
     backgroundColor:'#F9F9F9',
     borderRadius: 25,
     marginVertical:10,
