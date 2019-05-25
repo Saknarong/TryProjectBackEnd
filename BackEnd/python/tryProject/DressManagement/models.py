@@ -11,7 +11,13 @@ class Clothes(models.Model):
     categoryId = models.ForeignKey('Category',on_delete=models.CASCADE)
     clotheGender = models.CharField(max_length=6,
                             choices=GENDER,
-                            default='unisex')
+                            default='Unisex')
 
 class Category(models.Model):
     categoryName = models.CharField(max_length=100, blank=False)
+
+class Pattern(models.Model):
+    patternName = models.CharField(max_length=200)
+
+class ClothesColor(models.Model):
+    clothesColorCode = models.CharField(max_length=8)

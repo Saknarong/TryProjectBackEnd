@@ -2,6 +2,8 @@ from django.urls import path
 from DressManagement import views
 
 urlpatterns = [
-    path('showAllClothes/', views.showAllClothes),
-    path('showAllCategory/', views.showAllCategory)
+    path('clothesManagement/', views.clothesManagement),
+    path('categoryManagement/', views.categoryManagement),
+    path('clothesColorManagement/', views.clothesColorManagement),
+    path('patternManagement/', views.patternManagement),
 ]
