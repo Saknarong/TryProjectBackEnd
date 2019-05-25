@@ -18,4 +18,5 @@ from django.urls import path,include
 
 urlpatterns = [
     path('', include('DressManagement.urls')),
+    path('', include('ModuleUserInformation.urls')),
 ]
