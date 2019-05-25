@@ -27,9 +27,7 @@ def categoryManagement(request):
         return JsonResponse(serializer.data, safe=False)
     
     elif request.method == 'POST':
-        print('Test')
         data = JSONParser().parse(request)
-        print(data)
         serializer = CategorySerializer(data=data)
         if serializer.is_valid():
             serializer.save()
@@ -59,9 +57,7 @@ def clothesColorManagement(request):
         return JsonResponse(serializer.data, safe=False)
     
     elif request.method == 'POST':
-        print('Test')
         data = JSONParser().parse(request)
-        print(data)
         serializer = ClothesColorSerializer(data=data)
         if serializer.is_valid():
             serializer.save()

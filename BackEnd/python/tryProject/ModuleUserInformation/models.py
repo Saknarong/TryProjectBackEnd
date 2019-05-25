@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Shape(models.Model):
     GENDER = (
         ('m', 'Man'),
@@ -22,3 +21,15 @@ class User(models.Model):
     userPictureUrl = models.TextField()
     shapeId = models.ForeignKey('Shape',on_delete=models.CASCADE)
     skinColorId = models.ForeignKey('SkinColor',on_delete=models.CASCADE)
+
+    def __init__(self, firstName,lastName, email, pictureUrl, shapeId, skinColorId):
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.pic = pictureUrl
+        self.shape = shapeId
+        self.skinColor = skinColorId
+
+
+
+

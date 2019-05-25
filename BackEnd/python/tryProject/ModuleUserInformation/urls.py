@@ -5,4 +5,5 @@ urlpatterns = [
     path('skinColorManagement/', views.skinColorManagement),
     path('shapeManagement/', views.shapeManagement),
     path('userManagement/', views.userManagement),
+    path('guest/', views.createGuest),
 ]
