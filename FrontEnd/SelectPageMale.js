@@ -13,8 +13,8 @@ export default class SelectPageFemale extends Component {
             <ScrollView>
 
                 <ImageBackground
-                    source={require('./img/bg.png')}
-                    style={{ width: '100%' }}>
+                    source={require('./android/app/img/bg.png')}
+                    style={Styles.imageBackgroundStyle}></ImageBackground>
 
                     <View style={{ flex: 1, flexDirection: 'row', height: 1500 }}>
 

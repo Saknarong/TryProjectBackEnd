@@ -24,7 +24,7 @@ export default class SelectPageFemale extends Component {
       <ScrollView>
 
         <ImageBackground
-          source={require('./img/bg.png')}
+          source={require('./android/app/img/bg.png')}
           style={{ height: '100%' }}>
 
 

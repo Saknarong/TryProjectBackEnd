@@ -10,5 +10,4 @@ import ClothesDetail from './ClothesDetail';
 import ShowDetailOfUser from './ShowDetailOfUser';
 
 
-
-AppRegistry.registerComponent(appName, () =>ShowDetailOfUser);
+AppRegistry.registerComponent(appName, () =>App);

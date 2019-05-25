@@ -10,9 +10,6 @@ import {
 
 export default class App extends React.Component{
 
-aleart = () =>{
-  
-}
 
  render(){
    return(
@@ -44,7 +41,6 @@ aleart = () =>{
  }
  const styles = StyleSheet.create({
    Container: {
-     
      flex:1,
      backgroundColor: '#F3F3F3'
    },
