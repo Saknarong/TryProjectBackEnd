@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, ScrollView, Button, Image, ImageBackground } from 'react-native';
+import { Platform, StyleSheet, Text, View, ScrollView, Button, Image, ImageBackground, TouchableOpacity } from 'react-native';
 
 
 const instructions = Platform.select({
@@ -44,53 +44,67 @@ export default class SelectPageFemale extends Component {
                     {/* //Green1 */}
                     <View style={{ flex: 1, flexDirection: 'column' }}>
                       {/* //Col1Row1 */}
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
-                        <Image
-                          style={{ flex: 1, height: 300, marginTop: 10 }}
-                          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                        />
-                        <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
 
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
-                        <Image
-                          style={{ flex: 1, height: 300, marginTop: 10 }}
-                          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                        />
-                        <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
 
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
                         <Image
                           style={{ flex: 1, height: 300, marginTop: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                         />
                         <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
 
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
-                        <Image
-                          style={{ flex: 1, height: 300, marginTop: 10 }}
-                          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                        />
-                        <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
+                      </TouchableOpacity>
 
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
-                        <Image
-                          style={{ flex: 1, height: 300, marginTop: 10 }}
-                          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                        />
-                        <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
 
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
                         <Image
                           style={{ flex: 1, height: 300, marginTop: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                         />
                         <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
+
+                      </TouchableOpacity>
+
+
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                        <Image
+                          style={{ flex: 1, height: 300, marginTop: 10 }}
+                          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                        />
+                        <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
+
+                      </TouchableOpacity>
+
+
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                        <Image
+                          style={{ flex: 1, height: 300, marginTop: 10 }}
+                          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                        />
+                        <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
+
+                      </TouchableOpacity>
+
+
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                        <Image
+                          style={{ flex: 1, height: 300, marginTop: 10 }}
+                          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                        />
+                        <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
+
+                      </TouchableOpacity>
+
+
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                        <Image
+                          style={{ flex: 1, height: 300, marginTop: 10 }}
+                          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                        />
+                        <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
+
+                      </TouchableOpacity>
 
                     </View>
 
@@ -101,53 +115,53 @@ export default class SelectPageFemale extends Component {
 
                     <View style={{ flex: 1, flexDirection: 'column' }}>
                       {/* //Col1Row1 */}
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
                         <Image
                           style={{ flex: 1, height: 300, marginTop: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                         />
                         <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
+                      </TouchableOpacity>
 
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
                         <Image
                           style={{ flex: 1, height: 300, marginTop: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                         />
                         <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
+                      </TouchableOpacity>
 
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
                         <Image
                           style={{ flex: 1, height: 300, marginTop: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                         />
                         <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
+                      </TouchableOpacity>
 
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
                         <Image
                           style={{ flex: 1, height: 300, marginTop: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                         />
                         <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
+                      </TouchableOpacity>
 
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
                         <Image
                           style={{ flex: 1, height: 300, marginTop: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                         />
                         <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
+                      </TouchableOpacity>
 
-                      <View style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
+                      <TouchableOpacity style={{ flex: 0.16, backgroundColor: '#F9F9F9', marginBottom: 15, borderRadius: 10 }}>
                         <Image
                           style={{ flex: 1, height: 300, marginTop: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
                         />
                         <Text style={{ color: 'gray', fontWeight: 'bold', textAlign: 'center', marginBottom: 15, marginTop: 10 }}>Test</Text>
-                      </View>
+                      </TouchableOpacity>
 
                     </View>
 
@@ -172,58 +186,58 @@ export default class SelectPageFemale extends Component {
                 <View style={{ flex: 2, flexDirection: 'column' }}>
                   <View style={{ flex: 1, flexDirection: 'column' }}>
                     <View style={{ flex: 3, flexDirection: 'row', marginTop: 30, marginHorizontal: 10 }}>
-                      <View style={{ flex: 1, flexDirection: 'row' }} >
+                      <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }} >
                         <Image
                           style={{ height: 100, width: 100, borderRadius: 100 / 2, margin: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                          onPress={{source: '/'}}
+                          onPress={{ source: '/' }}
                         />
-                      </View>
+                      </TouchableOpacity>
 
-                      <View style={{ flex: 1, flexDirection: 'row' }} >
+                      <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }} >
                         <Image
                           style={{ height: 100, width: 100, borderRadius: 100 / 2, margin: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                          onPress={{source: '/'}}
+                          onPress={{ source: '/' }}
                         />
-                      </View>
+                      </TouchableOpacity>
 
-                      <View style={{ flex: 1, flexDirection: 'row' }} >
+                      <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }} >
                         <Image
                           style={{ height: 100, width: 100, borderRadius: 100 / 2, margin: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                          onPress={{source: '/'}}
+                          onPress={{ source: '/' }}
                         />
-                      </View>
+                      </TouchableOpacity>
                     </View>
 
                   </View>
 
                   <View style={{ flex: 1, flexDirection: 'column' }}>
                     <View style={{ flex: 3, flexDirection: 'row', marginHorizontal: 10, marginBottom: 30 }}>
-                      <View style={{ flex: 1, flexDirection: 'row' }} >
-                        <Image
-                          style={{ height: 100, width: 100, borderRadius: 100 / 2, margin: 10 }}
-                          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
-                          onPress={{source: '/'}}
-                          />
-                      </View>
-
-                      <View style={{ flex: 1, flexDirection: 'row' }} >
+                      <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }} >
                         <Image
                           style={{ height: 100, width: 100, borderRadius: 100 / 2, margin: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                          onPress={{source: '/'}}
+                          onPress={{ source: '/' }}
                         />
-                      </View>
+                      </TouchableOpacity>
 
-                      <View style={{ flex: 1, flexDirection: 'row' }} >
+                      <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }} >
                         <Image
                           style={{ height: 100, width: 100, borderRadius: 100 / 2, margin: 10 }}
                           source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-                          onPress={{source: '/'}}
+                          onPress={{ source: '/' }}
                         />
-                      </View>
+                      </TouchableOpacity>
+
+                      <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }} >
+                        <Image
+                          style={{ height: 100, width: 100, borderRadius: 100 / 2, margin: 10 }}
+                          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+                          onPress={{ source: '/' }}
+                        />
+                      </TouchableOpacity>
                     </View>
 
                   </View>
