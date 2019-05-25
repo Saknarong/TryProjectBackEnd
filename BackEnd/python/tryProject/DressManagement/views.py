@@ -2,7 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from DressManagement.models import Clothes, Category, ClothesColor, Pattern
 from rest_framework.parsers import JSONParser
-from DressManagement.serializers import ClothesSerializer, CategorySerializer, Pattern, ClothesColor
+from DressManagement.serializers import ClothesSerializer, CategorySerializer, PatternSerializer, ClothesColorSerializer
 
 @csrf_exempt
 def clothesManagement(request):
