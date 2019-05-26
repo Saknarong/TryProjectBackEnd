@@ -63,4 +63,18 @@ def createGuest(request):
         serializer = UserSerializer(data=user)
         if serializer.is_valid():
             return JsonResponse(serializer.data, status=201)
+
+@csrf_exempt
+def menShape(request):
+    if request.method == 'GET':
+        menShape = Shape.objects.filter(shapeGender='m')
+        serializer = ShapeSerializer(menShape, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def womanShape(request):
+    if request.method == 'GET':
+        womanShape = Shape.objects.filter(shapeGender='w')
+        serializer = ShapeSerializer(womanShape, many=True)
+        return JsonResponse(serializer.data, safe=False)
         
