@@ -18,11 +18,6 @@ export default class App extends React.Component {
               source={require('./android/app/img/add.png')}
               style={styles.addImageStyle} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.historyButton}>
-            <Image
-              source={require('./android/app/img/history.png')}
-              style={styles.historyImageStyle} />
-          </TouchableOpacity>
         </View>
         <View style={styles.allStyle}>
         <View style={styles.whiteSpace}>
@@ -77,7 +72,7 @@ const styles = StyleSheet.create({
   addButton: {
     marginTop: 4,
     marginRight: 160,
-    width:'10%'
+    width:20
   },
   addImageStyle: {
     width: 25,
