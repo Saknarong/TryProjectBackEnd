@@ -4,6 +4,16 @@ from DressManagement.models import Clothes, Category, ClothesColor, Pattern
 from rest_framework.parsers import JSONParser
 from DressManagement.serializers import ClothesSerializer, CategorySerializer, PatternSerializer, ClothesColorSerializer
 
+
+@csrf_exempt
+def updateClotheName(request):
+    if request.method == 'GET':
+        data = JSONParser().parse(request)
+        clothe = Clothes.objects.filter(id=data['id']).update(clotheName=data['clotheName'])
+        allClothes = Clothes.objects.all()
+        serializer = ClothesSerializer(allClothes,many = True)
+        return JsonResponse(serializer.data, safe=False)
+
 @csrf_exempt
 def clothesManagement(request):
     if request.method == 'GET':
@@ -18,6 +28,14 @@ def clothesManagement(request):
             serializer.save()
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        data = JSONParser().parse(request)
+        clothe = Clothes.objects.filter(id=data['id'])
+        clothe.delete()
+        allClothes = Clothes.objects.all()
+        serializer = ClothesSerializer(allClothes,many = True)
+        return JsonResponse(serializer.data, safe=False)
 
 @csrf_exempt
 def categoryManagement(request):

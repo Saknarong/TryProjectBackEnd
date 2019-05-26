@@ -6,4 +6,5 @@ urlpatterns = [
     path('categoryManagement/', views.categoryManagement),
     path('clothesColorManagement/', views.clothesColorManagement),
     path('patternManagement/', views.patternManagement),
+    path('updateClotheName/', views.updateClotheName),
 ]
