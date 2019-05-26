@@ -12,4 +12,4 @@ import SelectPageFemale from './SelectPageFemale';
 import SelectPageMale from './SelectPageMale';
 
 
-AppRegistry.registerComponent(appName, () =>SelectPageFemale);
+AppRegistry.registerComponent(appName, () =>SelectPageMale);
