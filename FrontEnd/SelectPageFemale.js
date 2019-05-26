@@ -25,6 +25,38 @@ export default class SelectPageFemale extends Component {
     console.log('serving done!');
   }
 
+
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     dataSource: []
+  //   }
+  // }
+
+  // renderItem = ({ item }) => {
+  //   return (
+  //     <TouchableOpacity>
+  //       <Text>{item.skinColorCode}</Text>
+  //     </TouchableOpacity>
+  //   )
+
+
+  // }
+
+  // componentWillMount() {
+  //   const url = '3.84.76.238/skinColorManagement'
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((responseJson) => {
+  //       this.setState({
+  //         dataSource: responseJson.skinColorCode
+  //       })
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
+
   render() {
 
     return (
@@ -61,11 +93,75 @@ export default class SelectPageFemale extends Component {
 
 
               ))}
-            </View>
-            <View style={styles.SkinColorStyle}>
-              <Text style={styles.SkinColorStyleText}>tannnnnn</Text>
+              <View style={styles.SkinColorStyle}>
+                <Text style={styles.TextStyle2}>Select Your Skin Color</Text>
+              </View>
+
+              <View style={{ flex: 0.25, backgroundColor: 'white', borderRadius: 10, height: 0 }}>
+
+                <View style={{ flex: 2, flexDirection: 'column' }}>
+                  <View style={{ flex: 1, flexDirection: 'column' }}>
+                    <View style={{ flex: 3, flexDirection: 'row', marginTop: 30, marginHorizontal: 10 }}>
+                      <TouchableOpacity style={{
+                        flex: 1, flexDirection: 'row', backgroundColor: '#ffe0bd',
+                        height: 100, width: 100, borderRadius: 50, margin: 10
+                      }} >
+                      </TouchableOpacity>
+
+                      <TouchableOpacity style={{
+                        flex: 1, flexDirection: 'row', backgroundColor: '#eac086',
+                        height: 100, width: 100, borderRadius: 50, margin: 10
+                      }} >
+                      </TouchableOpacity>
+
+
+                      <TouchableOpacity style={{
+                        flex: 1, flexDirection: 'row', backgroundColor: '#ffe39f',
+                        height: 100, width: 100, borderRadius: 50, margin: 10
+                      }} >
+                      </TouchableOpacity>
+
+                    </View>
+
+                  </View>
+
+                  <View style={{ flex: 1, flexDirection: 'column' }}>
+                    <View style={{ flex: 3, flexDirection: 'row', marginHorizontal: 10, marginBottom: 30 }}>
+                      <TouchableOpacity style={{
+                        flex: 1, flexDirection: 'row', backgroundColor: '#2d170e',
+                        height: 100, width: 100, borderRadius: 50, margin: 10
+                      }} >
+                      </TouchableOpacity>
+
+
+                      <TouchableOpacity style={{
+                        flex: 1, flexDirection: 'row', backgroundColor: '#6d4730',
+                        height: 100, width: 100, borderRadius: 50, margin: 10
+                      }} >
+                      </TouchableOpacity>
+
+
+                      <TouchableOpacity style={{
+                        flex: 1, flexDirection: 'row', backgroundColor: '#cc9f88',
+                        height: 100, width: 100, borderRadius: 50, margin: 10
+                      }} >
+                      </TouchableOpacity>
+
+                    </View>
+
+                  </View>
+
+
+                </View>
+
+
+
+
+              </View>
 
             </View>
+
+
 
 
           </View>
@@ -79,14 +175,21 @@ export default class SelectPageFemale extends Component {
 }
 
 const styles = StyleSheet.create({
-  
+
+  SkinColorStyleBox: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    //height: 100,
+    //marginTop: -500
+    //flex: 1
+  },
   SkinColorStyleText: {
-    textAlign
+    //backgroundColor: 'white',
+    marginTop: 50,
+    marginBottom: 20
   },
   SkinColorStyle: {
-    flex: 1,
-    backgroundColor: '#F7F7F7',
-    marginTop: -500
+
   },
   ImageBackgroundStyle: {
     width: '100%',
@@ -100,6 +203,13 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold'
   },
+  TextStyle2: {
+    fontSize: 20,
+    textAlign: 'center',
+    marginTop: 70,
+    color: 'gray',
+    fontWeight: 'bold'
+  },
   Container: {
     backgroundColor: 'white',
     borderRadius: 10,
@@ -107,7 +217,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginBottom: 10,
     marginTop: 50,
-    height: 1500,
+    height: 10,
     flex: 1
   },
   shapeContainer: {
