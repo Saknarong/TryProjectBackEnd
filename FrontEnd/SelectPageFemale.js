@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, ImageBackground, TouchableOpacity, FlatList, Button } from 'react-native';
 import axios from 'axios';
 
 
@@ -29,6 +29,7 @@ export default class SelectPageFemale extends Component {
 
     return (
       <ScrollView>
+
         <ImageBackground
           source={require('./android/app/img/bg.png')}
           style={styles.ImageBackgroundStyle}>
@@ -36,30 +37,49 @@ export default class SelectPageFemale extends Component {
             <Text style={styles.TextStyle}>Select Your Body Shape </Text>
           </View>
           <View style={styles.Container}>
+            <View style={styles.Container}>
               {this.state.data.map((val, index) => (
-                <View key={index}>
-                    {console.log(val.shapePictureUrl)}
-                  {val.shapePictureUrl && val.shapePictureUrl.length !== 0 ? (
-                    <TouchableOpacity style={styles.shapeContainer}>
-                      <Image style={styles.ImageStyle}
-                        source={{ uri: `${val.shapePictureUrl}` }}
-                      />
-                      <Text styles={styles.nameOfShapeStyle}>{val.shapeName}</Text>
-                    </TouchableOpacity>
-                  ) : (<Text>No image</Text>)}
-                </View>
-              ))}
 
+                <View key={index}>
+                  {console.log(val.shapePictureUrl)}
+                  {val.shapePictureUrl && val.shapePictureUrl.length !== 0 ? (
+
+                    <TouchableOpacity style={styles.shapeContainer}>
+
+                      <Image style={styles.ImageStyle}
+                        resizeMode='contain'
+                        source={{ uri: `${val.shapePictureUrl}` }}
+
+                      />
+                      <View style={{justifyContent: 'center'}}>
+                        <Text styles={styles.nameOfShapeStyle}>{val.shapeName}</Text>
+                      </View>
+                    </TouchableOpacity>
+
+                  ) : (<Text>No image</Text>)}
+
+                </View>
+
+
+              ))}
             </View>
+
+
+          </View>
+
+
         </ImageBackground>
       </ScrollView>
 
     );
   }
 }
+
 const styles = StyleSheet.create({
   ImageBackgroundStyle: {
-    height: '100%'
+    width: '100%',
+    marginTop: 0,
+    height: 5500
   },
   TextStyle: {
     fontSize: 20,
@@ -73,14 +93,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginLeft: 10,
     marginRight: 10,
-    marginBottom:10,
-    marginTop:10,
-    height:1500
+    marginBottom: 10,
+    marginTop: 50,
+    height: 5500,
+    flex: 1
   },
   shapeContainer: {
-    marginLeft: 20,
-    marginRight: 20,
-    width: '50%'
+    marginLeft: 10,
+    marginRight: 10,
+    width: '90%',
+    marginTop: 10,
+
   },
   bottonClick: {
     width: 120,
@@ -94,14 +117,21 @@ const styles = StyleSheet.create({
   nameOfShape: {
     textAlign: 'center',
     marginBottom: 15,
-    marginTop: 10
+    marginTop: 10,
+    justifyContent: 'center'
+
   },
   nameOfShapeStyle: {
     color: 'gray',
     fontWeight: 'bold',
   },
   ImageStyle: {
-    height: 200,
-    width: 120,
-  }
+    height: 300,
+    width: '100%',
+    justifyContent: 'center',
+    borderColor: 'black',
+    border: '1'
+
+  },
+
 });
