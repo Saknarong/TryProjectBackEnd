@@ -49,9 +49,8 @@ export default class SelectPageFemale extends Component {
                       <Image style={styles.ImageStyle}
                         resizeMode='contain'
                         source={{ uri: `${val.shapePictureUrl}` }}
-
                       />
-                      <View style={{justifyContent: 'center'}}>
+                      <View style={{ justifyContent: 'center' }}>
                         <Text styles={styles.nameOfShapeStyle}>{val.shapeName}</Text>
                       </View>
                     </TouchableOpacity>
@@ -62,6 +61,10 @@ export default class SelectPageFemale extends Component {
 
 
               ))}
+            </View>
+            <View style={styles.SkinColorStyle}>
+              <Text style={styles.SkinColorStyleText}>tannnnnn</Text>
+
             </View>
 
 
@@ -76,6 +79,15 @@ export default class SelectPageFemale extends Component {
 }
 
 const styles = StyleSheet.create({
+  
+  SkinColorStyleText: {
+    textAlign
+  },
+  SkinColorStyle: {
+    flex: 1,
+    backgroundColor: '#F7F7F7',
+    marginTop: -500
+  },
   ImageBackgroundStyle: {
     width: '100%',
     marginTop: 0,
@@ -95,14 +107,15 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginBottom: 10,
     marginTop: 50,
-    height: 5500,
+    height: 1500,
     flex: 1
   },
   shapeContainer: {
     marginLeft: 10,
     marginRight: 10,
-    width: '90%',
+    width: '95%',
     marginTop: 10,
+
 
   },
   bottonClick: {
@@ -129,9 +142,11 @@ const styles = StyleSheet.create({
     height: 300,
     width: '100%',
     justifyContent: 'center',
-    borderColor: 'black',
-    border: '1'
 
+    borderWidth: 0.8,
+    borderRadius: 40,
+    borderColor: 'gray',
+    marginTop: 10
   },
 
 });
