@@ -3,23 +3,22 @@ from django.views.decorators.csrf import csrf_exempt
 from ModuleUserInformation.models import User, Shape, SkinColor
 from rest_framework.parsers import JSONParser
 from ModuleUserInformation.serializers import UserSerializer, ShapeSerializer, SkinColorSerializer
+from rest_framework.renderers import JSONRenderer
 
 
+#สร้าง user
 @csrf_exempt
-def userManagement(request):
-    if request.method == 'GET':
-        allUser = User.objects.all()
-        serializer = UserSerializer(allUser, many=True)
-        return JsonResponse(serializer.data, safe=False)
-
-    elif request.method == 'POST':
+def createUser(request):
+    if request.method == 'POST':
         data = JSONParser().parse(request)
+        print(data)
         serializer = UserSerializer(data=data)
+        print('Hello')
         if serializer.is_valid():
+            print('Hello1')
             serializer.save()
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
-
 
 @csrf_exempt
 def shapeManagement(request):
@@ -50,20 +49,6 @@ def skinColorManagement(request):
             serializer.save()
             return JsonResponse(serializer.data, status=201)
 
-
-@csrf_exempt
-def createGuest(request):
-    if request.method == 'POST':
-        data = JSONParser().parse(request)
-        guestShape = Shape.objects.get(id=data['userShapeId'])
-        guestSkinColor = SkinColor.objects.get(id=data['userSkinColorId'])
-        guest = User(data['userFirstName'], data['userLastName'], data['userEmail'],
-                     data['userPictureUrl'], guestShape.id, guestSkinColor.id)
-        user = json.dump(guest)
-        serializer = UserSerializer(data=user)
-        if serializer.is_valid():
-            return JsonResponse(serializer.data, status=201)
-
 @csrf_exempt
 def menShape(request):
     if request.method == 'GET':
@@ -78,3 +63,17 @@ def womanShape(request):
         serializer = ShapeSerializer(womanShape, many=True)
         return JsonResponse(serializer.data, safe=False)
         
+
+@csrf_exempt
+def checkUserIsExist(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        fbId = data["fbId"]
+        result = {
+        }
+        print(fbId)
+        if  User.objects.filter(fbId=fbId).exists():
+            result["result"] = True
+        else:
+            result["result"] = False
+        return JsonResponse(result, safe=False)

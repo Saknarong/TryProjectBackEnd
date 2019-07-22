@@ -15,21 +15,22 @@ class SkinColor(models.Model):
     skinColorCode = models.CharField(max_length=8, blank=False)
 
 class User(models.Model):
-    userFirstName = models.CharField(max_length=300)
-    userLastName = models.CharField(max_length=300)
-    userEmail = models.TextField()
-    userPictureUrl = models.TextField()
+    fbId = models.CharField(max_length=300)
+    userName = models.CharField(max_length=300)
+    userProfile = models.TextField()
+    userBodyPictureUrl = models.TextField(blank=True)
+    userGender = models.CharField(max_length=10)
     shapeId = models.ForeignKey('Shape',on_delete=models.CASCADE)
     skinColorId = models.ForeignKey('SkinColor',on_delete=models.CASCADE)
 
-    def __init__(self, firstName,lastName, email, pictureUrl, shapeId, skinColorId):
-        self.firstName = firstName
-        self.lastName = lastName
-        self.email = email
-        self.pic = pictureUrl
-        self.shape = shapeId
-        self.skinColor = skinColorId
-
+    # def __init__(self, fbId, userName, userProfile, userBodyPictureUrl,userGender, shapeId, skinColorId):
+    #     self.fbId = fbId
+    #     self.userName = userName
+    #     self.userProfile = userProfile
+    #     self.userBodyPictureUrl = userBodyPictureUrl
+    #     self.userGender = userGender
+    #     self.shapeId = shapeId
+    #     self.skinColorId = skinColorId
 
 
 
