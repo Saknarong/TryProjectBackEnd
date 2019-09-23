@@ -10,9 +10,16 @@ class Shape(models.Model):
                                    choices=GENDER,
                                    blank=False)
     shapePictureUrl = models.TextField()
+    shapeShoulder = models.FloatField()
+    shapeChest = models.FloatField()
+    shapeWaist = models.FloatField()
+    shapeHip = models.FloatField()
+    shapeLeg = models.FloatField()
+
 
 class SkinColor(models.Model):
     skinColorCode = models.CharField(max_length=8, blank=False)
+    skinColorName = models.TextField()
 
 class User(models.Model):
     fbId = models.CharField(max_length=300)
@@ -21,7 +28,6 @@ class User(models.Model):
     userBodyPictureUrl = models.TextField(blank=True)
     userGender = models.CharField(max_length=10)
     shapeId = models.ForeignKey('Shape',on_delete=models.CASCADE)
-    skinColorId = models.ForeignKey('SkinColor',on_delete=models.CASCADE)
 
     # def __init__(self, fbId, userName, userProfile, userBodyPictureUrl,userGender, shapeId, skinColorId):
     #     self.fbId = fbId

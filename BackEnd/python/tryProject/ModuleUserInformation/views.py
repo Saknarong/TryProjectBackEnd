@@ -13,9 +13,7 @@ def createUser(request):
         data = JSONParser().parse(request)
         print(data)
         serializer = UserSerializer(data=data)
-        print('Hello')
         if serializer.is_valid():
-            print('Hello1')
             serializer.save()
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
