@@ -75,3 +75,16 @@ def checkUserIsExist(request):
         else:
             result["result"] = False
         return JsonResponse(result, safe=False)
+
+@csrf_exempt
+def getUser(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+
+        fbId = data["fbId"]
+        print(fbId)
+
+        user = User.objects.filter(fbId=fbId)
+        serializer = UserSerializer(user, many = True)
+
+        return JsonResponse(serializer.data, safe=False)

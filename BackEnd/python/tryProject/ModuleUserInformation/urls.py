@@ -8,4 +8,6 @@ urlpatterns = [
     path('womanShape/', views.womanShape),
     path('createUser/', views.createUser),
     path('checkUserIsExist/', views.checkUserIsExist),
+    path('getUser/', views.getUser),
+    
 ]

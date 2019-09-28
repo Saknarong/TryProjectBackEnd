@@ -17,6 +17,7 @@ class Shape(models.Model):
     shapeLeg = models.FloatField()
 
 
+
 class SkinColor(models.Model):
     skinColorCode = models.CharField(max_length=8, blank=False)
     skinColorName = models.TextField()

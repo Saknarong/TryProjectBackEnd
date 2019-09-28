@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from DressManagement.models import Clothes, Category, Pattern, ClothesColor
+from DressManagement.models import Clothes, Category, Pattern, ClothesColor, Event, Place
 
 
 
@@ -23,3 +23,13 @@ class ClothesColorSerializer(serializers.ModelSerializer):
         model = ClothesColor
         fields = ('__all__')
 
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = ('__all__')
+
+class PlaceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Place
+        fields = ('__all__')
