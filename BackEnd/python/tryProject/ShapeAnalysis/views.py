@@ -16,6 +16,8 @@ def analyzeShape(request):
         resultOfDif = None
         shapeId = None
         data = JSONParser().parse(request)
+        print(data)
+
         personShoulder = data["shoulder"]
         personChest = data["chest"]
         personWaist = data["waist"]
