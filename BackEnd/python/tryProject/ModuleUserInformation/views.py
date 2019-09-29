@@ -110,4 +110,7 @@ def getShapeName(request):
 def updateUserBodyPictureUrl(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
+        print(data)
         user = User.objects.filter(fbId=data['fbId']).update(userBodyPictureUrl=data['url'])
+        serializer = UserSerializer(user, many = True)
+        return JsonResponse(serializer.data, safe=False)
