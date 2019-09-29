@@ -9,5 +9,5 @@ urlpatterns = [
     path('createUser/', views.createUser),
     path('checkUserIsExist/', views.checkUserIsExist),
     path('getUser/', views.getUser),
-    
+    path('getShapeName/', views.getShapeName),
 ]

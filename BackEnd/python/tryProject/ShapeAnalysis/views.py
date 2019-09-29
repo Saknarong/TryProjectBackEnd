@@ -21,8 +21,17 @@ def analyzeShape(request):
         personWaist = data["waist"]
         personHip = data["hip"]
         personLeg = data["leg"]
+        personGender = data["gender"]
 
-        shapesData = Shape.objects.all()
+        print(personGender)
+
+        if personGender == 'male':
+                personGender = 'm'
+        else:
+                personGender = 'w'
+
+        shapesData = Shape.objects.filter(shapeGender = personGender)
+
         for shapeData in shapesData:
                 modelShoulder = shapeData.shapeShoulder
                 modelChest = shapeData.shapeChest

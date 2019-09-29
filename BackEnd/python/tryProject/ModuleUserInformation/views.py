@@ -69,7 +69,7 @@ def checkUserIsExist(request):
         fbId = data["fbId"]
         result = {
         }
-        print(fbId)
+
         if  User.objects.filter(fbId=fbId).exists():
             result["result"] = True
         else:
@@ -88,3 +88,19 @@ def getUser(request):
         serializer = UserSerializer(user, many = True)
 
         return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def getShapeName(request):
+    if request.method == 'POST':
+
+        data = JSONParser().parse(request)
+        result = {
+        }
+
+        shapeId = data["shapeId"]
+
+        shape = Shape.objects.filter(id=shapeId).get()
+
+        result["result"] = shape.shapeName
+
+        return JsonResponse(result, safe=False)

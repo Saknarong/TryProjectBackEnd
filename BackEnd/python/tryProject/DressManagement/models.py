@@ -14,7 +14,12 @@ class Clothes(models.Model):
     clotheGender = models.CharField(max_length=6,
                             choices=GENDER,
                             default='Unisex')
-    
+    clotheBrand = models.ForeignKey('Brand',on_delete=models.CASCADE)
+    clotheDrescription = models.TextField()
+    clotheLinkToBuy = models.TextField()
+
+class Brand(models.Model):
+    brandName = models.CharField(max_length=100, blank=False)
 
 class Category(models.Model):
     categoryName = models.CharField(max_length=100, blank=False)
