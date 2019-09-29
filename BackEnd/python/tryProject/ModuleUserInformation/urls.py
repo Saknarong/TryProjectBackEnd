@@ -10,4 +10,5 @@ urlpatterns = [
     path('checkUserIsExist/', views.checkUserIsExist),
     path('getUser/', views.getUser),
     path('getShapeName/', views.getShapeName),
+    path('updateUserBodyPictureUrl/', views.updateUserBodyPictureUrl),
 ]

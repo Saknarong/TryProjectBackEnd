@@ -104,3 +104,10 @@ def getShapeName(request):
         result["result"] = shape.shapeName
 
         return JsonResponse(result, safe=False)
+
+
+@csrf_exempt
+def updateUserBodyPictureUrl(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        user = User.objects.filter(fbId=data['fbId']).update(userBodyPictureUrl=data['url'])

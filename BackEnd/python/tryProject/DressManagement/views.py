@@ -125,6 +125,10 @@ def getAllEvent(request):
         serializer = EventSerializer(allEvent,many = True)
         return JsonResponse(serializer.data, safe=False)
 
+
+
+
+
 # @csrf_exempt
 # def getBrand(request):
 #     if request.method == 'POST':
