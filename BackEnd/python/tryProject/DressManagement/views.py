@@ -105,7 +105,8 @@ def getClothesByCategory(request):
                                       "AND cs.shape_id like %s "+
                                       "AND ce.event_id like %s "+
                                       "AND cp.place_id like %s "+
-                                      "AND c.clotheGender like %s OR c.clotheGender like 'u'", [data["categoryId"], data["shapeId"], data["eventId"], data["placeId"], data["gender"]])
+                                      "AND c.clotheGender like %s OR c.clotheGender like 'u' "+
+                                      "GROUP BY 1", [data["categoryId"], data["shapeId"], data["eventId"], data["placeId"], data["gender"]])
 
         serializer = ClothesSerializer(clothes,many = True)
             
