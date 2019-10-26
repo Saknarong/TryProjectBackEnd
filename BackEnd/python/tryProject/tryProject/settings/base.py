@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'DressManagement',
     'ModuleUserInformation',
     'ShapeAnalysis',
-    'corsheaders'
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
