@@ -30,6 +30,11 @@ class User(models.Model):
     userGender = models.CharField(max_length=10)
     shapeId = models.ForeignKey('Shape',on_delete=models.CASCADE)
 
+class BrandOwner(models.Model):
+    brandName = models.TextField()
+    brandGoogleId = models.TextField()
+    brandEmail = models.TextField()
+
     # def __init__(self, fbId, userName, userProfile, userBodyPictureUrl,userGender, shapeId, skinColorId):
     #     self.fbId = fbId
     #     self.userName = userName

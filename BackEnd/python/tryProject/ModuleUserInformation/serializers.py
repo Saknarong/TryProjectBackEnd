@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ModuleUserInformation.models import User, Shape, SkinColor
+from ModuleUserInformation.models import User, Shape, SkinColor, BrandOwner
 
 
 
@@ -16,4 +16,9 @@ class ShapeSerializer(serializers.ModelSerializer):
 class SkinColorSerializer(serializers.ModelSerializer):
     class Meta:
         model = SkinColor
+        fields = ('__all__')
+
+class BrandOwnerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BrandOwner
         fields = ('__all__')

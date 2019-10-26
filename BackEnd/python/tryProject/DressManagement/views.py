@@ -126,6 +126,14 @@ def getAllEvent(request):
         serializer = EventSerializer(allEvent,many = True)
         return JsonResponse(serializer.data, safe=False)
 
+@csrf_exempt
+def getClothesByBrand(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        allClothes = Clothes.objects.filter(id=data['id'])
+        serializer = ClothesSerializer(allClothes,many = True)
+        return JsonResponse(serializer.data, safe=False)
+
 
 
 
