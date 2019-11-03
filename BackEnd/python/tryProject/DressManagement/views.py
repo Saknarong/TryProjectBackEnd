@@ -14,6 +14,100 @@ def updateClotheName(request):
         serializer = ClothesSerializer(allClothes,many = True)
         return JsonResponse(serializer.data, safe=False)
 
+
+@csrf_exempt
+def addClothe(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+
+        clothe = {
+
+        }
+
+        clothe["clotheName"] = data["clotheName"]
+        clothe["clothePictureUrl"] = data["clothePictureUrl"]
+        clothe["clotheGender"] = data["clotheGender"]
+        clothe["categoryId"] = data["categoryId_id"]
+        clothe["clotheDrescription"] = data["clotheDrescription"]
+        clothe["clotheLinkToBuy"] = data["clotheLinkToBuy"]
+        clothe["clotheBrand"] = data["clotheBrand_id"]
+
+        serializer = ClothesSerializer(data=clothe)
+        if serializer.is_valid():
+            serializer.save()
+            
+            for event in data['event']:
+                clotheForEvent = ClothesForEvent()
+                clotheForEvent.clothes_id = serializer.data['id']
+                clotheForEvent.event_id = event
+                clotheForEvent.save()
+
+            for place in data['place']:
+                clotheForPlace = ClothesForPlace()
+                clotheForPlace.clothes_id = serializer.data['id']
+                clotheForPlace.place_id = place
+                clotheForPlace.save()
+
+            for shape in data['shape']:
+                clotheForShape = ClothesForShape()
+                clotheForShape.clothes_id = serializer.data['id']
+                clotheForShape.shape_id = shape
+                clotheForShape.save()
+
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+
+@csrf_exempt
+def editClothe(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+
+        clothe = {
+
+        }
+
+        clothe["clotheName"] = data["clotheName"]
+        clothe["clothePictureUrl"] = data["clothePictureUrl"]
+        clothe["clotheGender"] = data["clotheGender"]
+        clothe["categoryId"] = data["categoryId_id"]
+        clothe["clotheDrescription"] = data["clotheDrescription"]
+        clothe["clotheLinkToBuy"] = data["clotheLinkToBuy"]
+
+        clotheForUpDate = Clothes.objects.filter(id=data['id'])
+        clotheForUpDate.update(clotheName=clothe["clotheName"])
+        clotheForUpDate.update(clothePictureUrl=clothe["clothePictureUrl"])
+        clotheForUpDate.update(clotheGender=clothe["clotheGender"])
+        clotheForUpDate.update(categoryId=clothe["categoryId"])
+        clotheForUpDate.update(clotheDrescription=clothe["clotheDrescription"])
+        clotheForUpDate.update(clotheLinkToBuy=clothe["clotheLinkToBuy"])
+
+        clotheForEvent = ClothesForEvent.objects.filter(clothes=data['id']).delete()
+        clotheForPlace = ClothesForPlace.objects.filter(clothes=data['id']).delete()
+        clotheForShape = ClothesForShape.objects.filter(clothes=data['id']).delete()
+        
+        for event in data['event']:
+            clotheForEvent = ClothesForEvent()
+            clotheForEvent.clothes_id = data['id']
+            clotheForEvent.event_id = event
+            clotheForEvent.save()
+
+        for place in data['place']:
+            clotheForPlace = ClothesForPlace()
+            clotheForPlace.clothes_id = data['id']
+            clotheForPlace.place_id = place
+            clotheForPlace.save()
+
+        for shape in data['shape']:
+            clotheForShape = ClothesForShape()
+            clotheForShape.clothes_id = data['id']
+            clotheForShape.shape_id = shape
+            clotheForShape.save()
+
+        serializer = ClothesSerializer(clotheForUpDate, many=True)
+        
+        return JsonResponse(serializer.data, status=201, safe=False)
+
+
 @csrf_exempt
 def clothesManagement(request):
     if request.method == 'GET':
@@ -127,10 +221,10 @@ def getAllEvent(request):
         return JsonResponse(serializer.data, safe=False)
 
 @csrf_exempt
-def getClothesByBrand(request):
+def getClothesByBrandAndCategory(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
-        allClothes = Clothes.objects.filter(id=data['id'])
+        allClothes = Clothes.objects.filter(clotheBrand=data['clotheBrand']).filter(categoryId=data['categoryId'])
         serializer = ClothesSerializer(allClothes,many = True)
         return JsonResponse(serializer.data, safe=False)
 

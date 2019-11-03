@@ -10,6 +10,7 @@ urlpatterns = [
     path('getClothesByCategory/', views.getClothesByCategory),
     path('getAllPlace/', views.getAllPlace),
     path('getAllEvent/', views.getAllEvent),
-    path('getClothesByBrand/', views.getClothesByBrand),
-    
+    path('getClothesByBrandAndCategory/', views.getClothesByBrandAndCategory),
+    path('addClothe/', views.addClothe),
+    path('editClothe/', views.editClothe),
 ]

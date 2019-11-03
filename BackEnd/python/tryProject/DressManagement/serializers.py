@@ -7,7 +7,6 @@ class ClothesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clothes
         fields = ('__all__')
-        app_label = 'DressManagement'
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
