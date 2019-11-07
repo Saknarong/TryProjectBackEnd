@@ -119,6 +119,7 @@ def updateUserBodyPictureUrl(request):
 def createBrand(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
+        print(data)
         serializer = BrandOwnerSerializer(data=data)
         if serializer.is_valid():
             serializer.save()

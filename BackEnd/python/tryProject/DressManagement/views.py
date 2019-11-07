@@ -189,7 +189,7 @@ def getClothesByCategory(request):
         print(data["eventId"])
         print(data["placeId"])
         print(data["gender"])
-
+            
         clothes = Clothes.objects.raw("SELECT c.id, c.clotheName, c.clothePictureUrl, c.clotheGender, c.categoryId_id, cs.shape_id, ce.event_id, cp.place_id "+
                                       "FROM DressManagement_clothes as c "+
                                       "JOIN DressManagement_clothesforshape as cs ON c.id = cs.clothes_id "+
@@ -199,7 +199,7 @@ def getClothesByCategory(request):
                                       "AND cs.shape_id like %s "+
                                       "AND ce.event_id like %s "+
                                       "AND cp.place_id like %s "+
-                                      "AND c.clotheGender like %s OR c.clotheGender like 'u' "+
+                                      "AND (c.clotheGender like %s OR c.clotheGender like 'u') "+
                                       "GROUP BY 1", [data["categoryId"], data["shapeId"], data["eventId"], data["placeId"], data["gender"]])
 
         serializer = ClothesSerializer(clothes,many = True)
