@@ -229,7 +229,20 @@ def getClothesByBrandAndCategory(request):
         return JsonResponse(serializer.data, safe=False)
 
 
+@csrf_exempt
+def deleteClothe(request):
+    if request.method == 'DELETE':
+        data = JSONParser().parse(request) 
 
+        clotheForEvent = ClothesForEvent.objects.filter(clothes=data['id']).delete()
+        clotheForPlace = ClothesForPlace.objects.filter(clothes=data['id']).delete()
+        clotheForShape = ClothesForShape.objects.filter(clothes=data['id']).delete()
+
+        clothe = Clothes.objects.filter(id=data['id'])
+        clothe.delete()
+        allClothes = Clothes.objects.all()
+        serializer = ClothesSerializer(allClothes,many = True)
+        return JsonResponse(serializer.data, safe=False)
 
 
 # @csrf_exempt

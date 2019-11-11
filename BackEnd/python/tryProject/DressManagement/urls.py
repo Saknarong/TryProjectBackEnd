@@ -13,4 +13,6 @@ urlpatterns = [
     path('getClothesByBrandAndCategory/', views.getClothesByBrandAndCategory),
     path('addClothe/', views.addClothe),
     path('editClothe/', views.editClothe),
+    path('deleteClothe/', views.deleteClothe),
+    
 ]
