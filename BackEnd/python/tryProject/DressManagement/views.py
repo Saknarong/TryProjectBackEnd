@@ -231,7 +231,7 @@ def getClothesByBrandAndCategory(request):
 
 @csrf_exempt
 def deleteClothe(request):
-    if request.method == 'DELETE':
+    if request.method == 'POST':
         data = JSONParser().parse(request) 
 
         clotheForEvent = ClothesForEvent.objects.filter(clothes=data['id']).delete()
