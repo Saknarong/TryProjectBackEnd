@@ -141,4 +141,15 @@ def checkAdminIsExist(request):
         
         return JsonResponse(result, safe=False)
 
+@csrf_exempt
+def getBrandName(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+
+        brandOwner = BrandOwner.objects.filter(id=data['id'])
+
+        serializer = BrandOwnerSerializer(brandOwner, many=True)
+
+        return JsonResponse(serializer.data, safe=False)
+
 

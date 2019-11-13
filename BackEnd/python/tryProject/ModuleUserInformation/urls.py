@@ -13,4 +13,5 @@ urlpatterns = [
     path('updateUserBodyPictureUrl/', views.updateUserBodyPictureUrl),
     path('createBrand/', views.createBrand),
     path('checkAdminIsExist/', views.checkAdminIsExist),
+    path('getBrandName/', views.getBrandName),
 ]

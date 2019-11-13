@@ -245,6 +245,7 @@ def deleteClothe(request):
         return JsonResponse(serializer.data, safe=False)
 
 
+
 # @csrf_exempt
 # def getBrand(request):
 #     if request.method == 'POST':
