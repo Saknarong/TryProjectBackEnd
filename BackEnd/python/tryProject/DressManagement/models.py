@@ -45,3 +45,7 @@ class ClothesForEvent(models.Model):
 class ClothesForPlace(models.Model):
     place = models.ForeignKey('Place',on_delete=models.CASCADE)
     clothes = models.ForeignKey('Clothes',on_delete=models.CASCADE)
+
+class FavoriteClothes(models.Model):
+    clothe = models.ForeignKey('Clothes',on_delete=models.CASCADE)
+    user = models.CharField(max_length=100, blank=False)

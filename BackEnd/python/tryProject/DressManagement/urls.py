@@ -14,5 +14,13 @@ urlpatterns = [
     path('addClothe/', views.addClothe),
     path('editClothe/', views.editClothe),
     path('deleteClothe/', views.deleteClothe),
+    path('getFavoriteByUserId/', views.getFavoriteByUserId),
+    path('addFavorite/', views.addFavorite),
+    path('deleteFavorite/', views.deleteFavorite),
+    path('getClotheById/', views.getClotheById),
+    path('getShapeById/', views.getShapeById),
+    path('getEventById/', views.getEventById),
+    path('getPlaceById/', views.getPlaceById),
+
     
 ]
