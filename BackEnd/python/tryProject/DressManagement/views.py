@@ -3,7 +3,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from DressManagement.models import Clothes, Category, ClothesColor, Pattern, ClothesForShape, ClothesForEvent, ClothesForPlace, Place, Event, FavoriteClothes
 from rest_framework.parsers import JSONParser
-from ModuleUserInformation.models import Shape
+from ModuleUserInformation.models import Shape, BrandOwner
 from DressManagement.serializers import ClothesSerializer, CategorySerializer, PatternSerializer, ClothesColorSerializer, PlaceSerializer, EventSerializer, FavoriteClothesSerializer, ClothesForShapeSerializer, ClothesForPlaceSerializer, ClothesForEventSerializer
 
 
@@ -272,6 +272,7 @@ def getFavoriteByUserId(request):
             json['clotheName'] = clothe[0].clotheName
             json['clothePictureUrl'] = clothe[0].clothePictureUrl
             json['id'] = clothe[0].id
+            json['brandName'] = BrandOwner.objects.filter(id=clothe[0].clotheBrand.id)[0].brandName   
             result.append(json)
 
         return JsonResponse(result, safe=False)
