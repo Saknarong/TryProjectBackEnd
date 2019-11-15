@@ -26,13 +26,15 @@ def addClothe(request):
 
         }
 
+        brandOwner = BrandOwner.objects.filter(brandGoogleId=data['clotheBrand_id'])
+
         clothe["clotheName"] = data["clotheName"]
         clothe["clothePictureUrl"] = data["clothePictureUrl"]
         clothe["clotheGender"] = data["clotheGender"]
         clothe["categoryId"] = data["categoryId_id"]
         clothe["clotheDrescription"] = data["clotheDrescription"]
         clothe["clotheLinkToBuy"] = data["clotheLinkToBuy"]
-        clothe["clotheBrand"] = data["clotheBrand_id"]
+        clothe["clotheBrand"] = brandOwner[0].id
 
         serializer = ClothesSerializer(data=clothe)
         if serializer.is_valid():
