@@ -1,7 +1,9 @@
 from django.http import HttpResponse, JsonResponse
+import json
 from django.views.decorators.csrf import csrf_exempt
 from DressManagement.models import Clothes, Category, ClothesColor, Pattern, ClothesForShape, ClothesForEvent, ClothesForPlace, Place, Event, FavoriteClothes
 from rest_framework.parsers import JSONParser
+from ModuleUserInformation.models import Shape
 from DressManagement.serializers import ClothesSerializer, CategorySerializer, PatternSerializer, ClothesColorSerializer, PlaceSerializer, EventSerializer, FavoriteClothesSerializer, ClothesForShapeSerializer, ClothesForPlaceSerializer, ClothesForEventSerializer
 
 
@@ -250,9 +252,29 @@ def deleteClothe(request):
 def getFavoriteByUserId(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
+
+        result = [
+
+        ]
+
         allFavorite = FavoriteClothes.objects.filter(user=data['id'])
-        serializer = FavoriteClothesSerializer(allFavorite, many = True)
-        return JsonResponse(serializer.data, safe=False)
+
+        for favorite in allFavorite:
+            json = {
+
+            }
+            clothe = Clothes.objects.filter(id=favorite.clothe.id)    
+            json['categoryId'] = clothe[0].categoryId.id
+            json['clotheBrand'] = clothe[0].clotheBrand.id
+            json['clotheDrescription'] = clothe[0].clotheDrescription
+            json['clotheGender'] = clothe[0].clotheGender
+            json['clotheLinkToBuy'] = clothe[0].clotheLinkToBuy
+            json['clotheName'] = clothe[0].clotheName
+            json['clothePictureUrl'] = clothe[0].clothePictureUrl
+            json['id'] = clothe[0].id
+            result.append(json)
+
+        return JsonResponse(result, safe=False)
 
 @csrf_exempt
 def addFavorite(request):
@@ -289,25 +311,46 @@ def getClotheById(request):
 def getEventById(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
+        result = []
         allEvent = ClothesForEvent.objects.filter(clothes=data['id'])
-        serializer = ClothesForEventSerializer(allEvent,many = True)
-        return JsonResponse(serializer.data, safe=False)
+        for event in allEvent:
+            json = {}
+            eventObj = Event.objects.filter(id=event.event.id)
+            json['id'] = eventObj[0].id
+            json['event'] = eventObj[0].event
+            json['clothes'] = event.clothes.id
+            result.append(json)
+        return JsonResponse(result, safe=False)
 
 @csrf_exempt
 def getPlaceById(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
-        allEvent = ClothesForPlace.objects.filter(clothes=data['id'])
-        serializer = ClothesForPlaceSerializer(allEvent,many = True)
-        return JsonResponse(serializer.data, safe=False)
+        result = []
+        allPlaces = ClothesForPlace.objects.filter(clothes=data['id'])
+        for place in allPlaces:
+            json = {}
+            placeObj = Place.objects.filter(id=place.place.id)
+            json['id'] = placeObj[0].id
+            json['place'] = placeObj[0].place
+            json['clothes'] = place.clothes.id
+            result.append(json)
+        return JsonResponse(result, safe=False)
 
 @csrf_exempt
 def getShapeById(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
-        allEvent = ClothesForShape.objects.filter(clothes=data['id'])
-        serializer = ClothesForShapeSerializer(allEvent,many = True)
-        return JsonResponse(serializer.data, safe=False)
+        result = []
+        allShapes = ClothesForShape.objects.filter(clothes=data['id'])
+        for shape in allShapes:
+            json = {}
+            shapeObj = Shape.objects.filter(id=shape.shape.id)
+            json['id'] = shapeObj[0].id
+            json['shape'] = shapeObj[0].shapeName
+            json['clothes'] = shape.clothes.id
+            result.append(json)
+        return JsonResponse(result, safe=False)
 
 
 
