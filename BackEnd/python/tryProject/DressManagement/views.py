@@ -228,7 +228,8 @@ def getAllEvent(request):
 def getClothesByBrandAndCategory(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
-        allClothes = Clothes.objects.filter(clotheBrand=data['clotheBrand']).filter(categoryId=data['categoryId'])
+        brandOwner = BrandOwner.objects.filter(brandGoogleId=data['clotheBrand'])
+        allClothes = Clothes.objects.filter(clotheBrand=brandOwner[0].id).filter(categoryId=data['categoryId'])
         serializer = ClothesSerializer(allClothes,many = True)
         return JsonResponse(serializer.data, safe=False)
 
