@@ -111,7 +111,8 @@ def updateUserBodyPictureUrl(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
         print(data)
-        user = User.objects.filter(fbId=data['fbId']).update(userBodyPictureUrl=data['url'])
+        user = User.objects.filter(fbId=data['fbId'])[0].update(shapeId=data['shapeId'])
+        user = User.objects.filter(fbId=data['fbId'])[0].update(userBodyPictureUrl=data['url'])
         serializer = UserSerializer(user, many = True)
         return JsonResponse(serializer.data, safe=False)
 
